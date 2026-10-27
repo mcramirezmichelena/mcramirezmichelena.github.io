@@ -419,7 +419,10 @@ function justificarTextosLargos() {
     if (p.offsetHeight / alto > 3.5) p.classList.add('justify-long');
   });
 }
+// Run now, and again once the fonts and the page have finished loading (the load event can fire before this script).
+justificarTextosLargos();
 window.addEventListener('load', justificarTextosLargos);
+if (document.fonts) document.fonts.ready.then(justificarTextosLargos);
 window.addEventListener('resize', justificarTextosLargos);
 </script>
 
