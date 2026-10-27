@@ -42,6 +42,8 @@
   #teaching .card-simple .article-style p { margin-bottom: .3rem; }
   #teaching .card-simple .article-style p.edu-degree:not(:first-child) { margin-top: .6rem; }
   #teaching .card-simple .article-style p:last-child { margin-bottom: 0; }
+  /* Texts longer than three lines are justified; the script below adds the class. */
+  p.justify-long { text-align: justify; }
 </style>
 </head>
 <body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main">
@@ -407,6 +409,19 @@
   const content_type = {};
 </script>
 <script src="js/academic.min.js"></script>
+<script>
+// Justify paragraphs that run to more than three lines; re-check when the window is resized.
+function justificarTextosLargos() {
+  document.querySelectorAll('section p').forEach(function (p) {
+    p.classList.remove('justify-long');
+    var estilo = getComputedStyle(p);
+    var alto = parseFloat(estilo.lineHeight) || parseFloat(estilo.fontSize) * 1.5;
+    if (p.offsetHeight / alto > 3.5) p.classList.add('justify-long');
+  });
+}
+window.addEventListener('load', justificarTextosLargos);
+window.addEventListener('resize', justificarTextosLargos);
+</script>
 
 <div class="container">
   <footer class="site-footer">
