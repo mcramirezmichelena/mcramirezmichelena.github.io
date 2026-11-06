@@ -44,6 +44,8 @@
   #teaching .card-simple .article-style p:last-child { margin-bottom: 0; }
   /* Texts longer than three lines are justified; the script below adds the class. */
   p.justify-long, #about h1 ~ p { text-align: justify; }
+  /* Deep-link target for the working papers (e.g. from the CV); keeps the fixed navbar from covering the list. */
+  #working-papers { scroll-margin-top: 90px; }
 </style>
 </head>
 <body id="top" data-spy="scroll" data-offset="70" data-target="#navbar-main">
@@ -196,6 +198,7 @@
       </div>
       <div class="col-12 col-lg-8">
 
+        <div id="working-papers"></div>
         <div class="card-simple">
           <div class="article-metadata">
             <div>with Magdalena Blanco and Natalia D'Agosti</div>
